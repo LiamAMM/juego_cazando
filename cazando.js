@@ -38,6 +38,7 @@ function moverIzquierda() {
     limpiarCanva();
     graficarGato();
     graficarComida();
+    detectarColision();
 }
 
 function moverDerecha() {
@@ -45,6 +46,7 @@ function moverDerecha() {
     limpiarCanva();
     graficarGato();
     graficarComida();
+    detectarColision();
 }
 
 function moverArriba() {
@@ -52,6 +54,7 @@ function moverArriba() {
     limpiarCanva();
     graficarGato();
     graficarComida();
+    detectarColision();
 }
 
 function moverAbajo() {
@@ -59,4 +62,16 @@ function moverAbajo() {
     limpiarCanva();
     graficarGato();
     graficarComida();
+    detectarColision();
+}
+
+function detectarColision() {
+    let posicionGatoX = (gatoX - ANCHO_GATO) / 2;
+    let posicionGatoY = (gatoY - ALTO_GATO) / 2;
+    if (posicionGatoX < comidaX + ANCHO_COMIDA &&
+        posicionGatoX + ANCHO_GATO > comidaX &&
+        posicionGatoY < comidaY + ALTO_COMIDA &&
+        posicionGatoY + ALTO_GATO > comidaY) {   
+        alert("¡Atrapaste la comida!");
+    }
 }
