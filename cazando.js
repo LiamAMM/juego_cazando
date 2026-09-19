@@ -1,16 +1,17 @@
 let canvas=document.getElementById ("areaJuego");
 let ctx=canvas.getContext("2d");
 
-let gatoX=canvas.width
-let gatoY=canvas.height
-let comidaX=500-50
-let comidaY=500-50
-let puntaje=0
+let gatoX=canvas.width;
+let gatoY=canvas.height;
+let comidaX=500-50;
+let comidaY=500-50;
+let puntaje=0;
+let tiempo=10;
 
-const ALTO_GATO=60
-const ANCHO_GATO=40
-const ALTO_COMIDA=50
-const ANCHO_COMIDA=50
+const ALTO_GATO=60;
+const ANCHO_GATO=40;
+const ALTO_COMIDA=50;
+const ANCHO_COMIDA=50;
 
 function graficarRectangulo(x, y, ancho, alto, color) {
     ctx.fillStyle = color;
@@ -29,6 +30,7 @@ function iniciarJuego(){
     graficarGato();
     graficarComida();
     alazarComida();
+    setInterval(restarTiempo, 1000);
 }
 
 function limpiarCanva() {
@@ -88,3 +90,9 @@ function alazarComida() {
     graficarGato();
     graficarComida();
 }
+
+function restarTiempo() {
+    tiempo = tiempo - 1;
+    mostrarEnSpan("tiempo", tiempo);
+}
+
