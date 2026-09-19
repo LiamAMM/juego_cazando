@@ -5,6 +5,7 @@ let gatoX=canvas.width
 let gatoY=canvas.height
 let comidaX=500-50
 let comidaY=500-50
+let puntaje=0
 
 const ALTO_GATO=60
 const ANCHO_GATO=40
@@ -27,6 +28,7 @@ function graficarComida() {
 function iniciarJuego(){
     graficarGato();
     graficarComida();
+    alazarComida();
 }
 
 function limpiarCanva() {
@@ -73,5 +75,16 @@ function detectarColision() {
         posicionGatoY < comidaY + ALTO_COMIDA &&
         posicionGatoY + ALTO_GATO > comidaY) {   
         alert("¡Atrapaste la comida!");
+        alazarComida();
+        puntaje = puntaje + 1;
+        mostrarEnSpan("puntos", puntaje);
     }
+}
+
+function alazarComida() {
+    comidaX = generarAleatorio(0, canvas.width - ANCHO_COMIDA);
+    comidaY = generarAleatorio(0, canvas.height - ALTO_COMIDA);
+    limpiarCanva();
+    graficarGato();
+    graficarComida();
 }
