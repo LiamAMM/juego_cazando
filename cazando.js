@@ -6,7 +6,7 @@ let gatoY=canvas.height;
 let comidaX=500-50;
 let comidaY=500-50;
 let puntaje=0;
-let tiempo=100;
+let tiempo=10;
 let idInterval;
 
 const ALTO_GATO=60;
@@ -105,3 +105,13 @@ function restarTiempo() {
     }
 }
 
+function reiniciarJuego() {
+    clearInterval(idInterval);
+    tiempo = 10;
+    puntaje = 0;
+    mostrarEnSpan("tiempo", tiempo);
+    mostrarEnSpan("puntos", puntaje);
+    limpiarCanva();
+    iniciarJuego();
+
+}
