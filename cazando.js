@@ -6,7 +6,8 @@ let gatoY=canvas.height;
 let comidaX=500-50;
 let comidaY=500-50;
 let puntaje=0;
-let tiempo=10;
+let tiempo=100;
+let idInterval;
 
 const ALTO_GATO=60;
 const ANCHO_GATO=40;
@@ -30,7 +31,7 @@ function iniciarJuego(){
     graficarGato();
     graficarComida();
     alazarComida();
-    setInterval(restarTiempo, 1000);
+    idInterval = setInterval(restarTiempo, 1000);
 }
 
 function limpiarCanva() {
@@ -80,6 +81,10 @@ function detectarColision() {
         alazarComida();
         puntaje = puntaje + 1;
         mostrarEnSpan("puntos", puntaje);
+        if (puntaje == 6) {
+            alert("¡Ganaste!");
+            clearInterval(idInterval);
+        }   
     }
 }
 
@@ -94,5 +99,9 @@ function alazarComida() {
 function restarTiempo() {
     tiempo = tiempo - 1;
     mostrarEnSpan("tiempo", tiempo);
+    if (tiempo == 0) {
+        alert("Game Over");
+        clearInterval(idInterval);
+    }
 }
 
