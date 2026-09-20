@@ -39,35 +39,51 @@ function limpiarCanva() {
 }
 
 function moverIzquierda() {
-    gatoX = gatoX - 10;
-    limpiarCanva();
-    graficarGato();
-    graficarComida();
-    detectarColision();
+    if (tiempo > 0) {
+        if (puntaje < 6) {
+            gatoX = gatoX - 10;
+            limpiarCanva();
+            graficarGato();
+            graficarComida();
+            detectarColision();
+        }
+    }
 }
 
 function moverDerecha() {
-    gatoX = gatoX + 10; 
-    limpiarCanva();
-    graficarGato();
-    graficarComida();
-    detectarColision();
+    if (tiempo > 0) {
+        if (puntaje < 6) {
+            gatoX = gatoX + 10;
+            limpiarCanva();
+            graficarGato();
+            graficarComida();
+            detectarColision();
+        }
+    }
 }
 
 function moverArriba() {
-    gatoY = gatoY - 10; 
-    limpiarCanva();
-    graficarGato();
-    graficarComida();
-    detectarColision();
+    if (tiempo > 0) {
+        if (puntaje < 6) {
+            gatoY = gatoY - 10;
+            limpiarCanva();
+            graficarGato();
+            graficarComida();
+            detectarColision();
+        }
+    }
 }
 
 function moverAbajo() {
-    gatoY = gatoY + 10; 
-    limpiarCanva();
-    graficarGato();
-    graficarComida();
-    detectarColision();
+    if (tiempo > 0) {
+        if (puntaje < 6) {
+            gatoY = gatoY + 10;
+            limpiarCanva();
+            graficarGato();
+            graficarComida();
+            detectarColision();
+        }
+    }
 }
 
 function detectarColision() {
@@ -109,6 +125,8 @@ function reiniciarJuego() {
     clearInterval(idInterval);
     tiempo = 10;
     puntaje = 0;
+    gatoX = canvas.width;
+    gatoY = canvas.height;
     mostrarEnSpan("tiempo", tiempo);
     mostrarEnSpan("puntos", puntaje);
     limpiarCanva();
