@@ -1,42 +1,120 @@
+/* Importamos una fuente gamer/futurista directamente desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
 body {
   text-align: center;
-  font-family: Arial, sans-serif;
-  background: #f0f0f0;
+  font-family: 'Orbitron', Arial, sans-serif;
+  /* Fondo oscuro con un degradado radial moderno */
+  background: radial-gradient(circle at center, #1e1e2f 0%, #0b0b13 100%);
+  color: #ffffff;
   margin: 0;
   padding: 20px;
+  /* Aseguramos que ocupe toda la pantalla y centramos el contenido */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1 {
   margin-bottom: 5px;
+  color: #00ffff; /* Cyan Neón */
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  /* Efecto de resplandor (glow) en el texto */
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+/* Estilo para el párrafo del autor */
+p {
+  color: #b026ff; /* Morado Neón */
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-top: 0;
+  text-shadow: 0 0 8px rgba(176, 38, 255, 0.6);
 }
 
 .panel {
   margin: 15px 0;
-  font-size: 18px;
+  font-size: 20px;
   display: flex;
   justify-content: center;
   gap: 30px;
+  /* Panel de estadísticas estilo HUD de videojuego */
+  background: rgba(0, 0, 0, 0.6);
+  padding: 12px 25px;
+  border-radius: 8px;
+  border: 2px solid #39ff14; /* Borde verde neón */
+  box-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
+  color: #39ff14;
+  font-weight: bold;
+  text-shadow: 0 0 5px #39ff14;
 }
 
 canvas {
-  background: white;
-  border: 2px solid black;
+  /* Fondo oscuro para el canvas, puedes ponerlo en "white" si tus dibujos en JS son negros */
+  background: #12121a; 
+  /* Borde iluminado */
+  border: 4px solid #b026ff;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #b026ff, inset 0 0 20px rgba(176, 38, 255, 0.3);
+  margin-top: 10px;
 }
 
 .controles {
-  margin-top: 20px;
+  margin-top: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 15px;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
 }
 
 button {
   margin: 5px;
-  padding: 10px 16px;
-  font-size: 18px;
+  padding: 12px 20px;
+  font-size: 20px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
   cursor: pointer;
+  /* Botones estilo Cyberpunk */
+  background: transparent;
+  color: #00ffff;
+  border: 2px solid #00ffff;
+  border-radius: 8px;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+/* Efectos al pasar el mouse por encima de los controles */
+button:hover {
+  background: #00ffff;
+  color: #0b0b13;
+  box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+  transform: scale(1.1);
+}
+
+/* Efecto al hacer clic en el botón */
+button:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 10px #00ffff;
 }
 
 #mensaje {
-  font-size: 20px;
-  font-weight: bold;
-  color: darkred;
+  font-size: 26px;
+  font-weight: 900;
+  color: #ff2a2a; /* Rojo alerta */
   margin-top: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px #ff2a2a, 0 0 30px #ff2a2a;
+  /* Animación de parpadeo continuo para dar sensación de 'Game Over' o alerta */
+  animation: parpadeo 1.2s infinite alternate;
+}
+
+/* Keyframes para la animación del mensaje */
+@keyframes parpadeo {
+  0% { opacity: 1; }
+  100% { opacity: 0.4; }
 }
